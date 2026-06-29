@@ -14,6 +14,11 @@ App::App(GtkApplication* gtk_app)
 void App::on_activate() {
     load_css();
 
+    GdkDisplay* display = gdk_display_get_default();
+    GtkIconTheme* icon_theme = gtk_icon_theme_get_for_display(display);
+    std::string icons_dir = Resources::path("icons");
+    gtk_icon_theme_add_search_path(icon_theme, icons_dir.c_str());
+
     window_ = new Window(gtk_app_);
 
     window_->set_toggle_callback([this]() { on_toggle(); });

@@ -64,6 +64,10 @@ install(FILES
     DESTINATION ${CMAKE_INSTALL_DATADIR}/clean-my-keyboard
 )
 
+install(DIRECTORY resources/icons/
+    DESTINATION ${CMAKE_INSTALL_DATADIR}/clean-my-keyboard/icons
+)
+
 install(FILES resources/keyboard-enabled.svg
     DESTINATION ${CMAKE_INSTALL_DATADIR}/icons/hicolor/scalable/apps
     RENAME clean-my-keyboard.svg

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
+  <defs>
+    <mask id="keyboard-mask">
+      <!-- Everything white stays -->
+      <rect x="8" y="28" width="80" height="48" rx="6" ry="6" fill="white"/>
+      <!-- Everything black is cut out -->
+      <!-- Row 1 keys -->
+      <rect x="14" y="34" width="8" height="8" rx="1.5" fill="black"/>
+      <rect x="24" y="34" width="8" height="8" rx="1.5" fill="black"/>
+      <rect x="34" y="34" width="8" height="8" rx="1.5" fill="black"/>
+      <rect x="44" y="34" width="8" height="8" rx="1.5" fill="black"/>
+      <rect x="54" y="34" width="8" height="8" rx="1.5" fill="black"/>
+      <rect x="64" y="34" width="8" height="8" rx="1.5" fill="black"/>
+      <rect x="74" y="34" width="8" height="8" rx="1.5" fill="black"/>
+      <!-- Row 2 keys -->
+      <rect x="16" y="44" width="8" height="8" rx="1.5" fill="black"/>
+      <rect x="26" y="44" width="8" height="8" rx="1.5" fill="black"/>
+      <rect x="36" y="44" width="8" height="8" rx="1.5" fill="black"/>
+      <rect x="46" y="44" width="8" height="8" rx="1.5" fill="black"/>
+      <rect x="56" y="44" width="8" height="8" rx="1.5" fill="black"/>
+      <rect x="66" y="44" width="8" height="8" rx="1.5" fill="black"/>
+      <!-- Spacebar -->
+      <rect x="24" y="54" width="48" height="8" rx="1.5" fill="black"/>
+    </mask>
+  </defs>
+
+  <!-- Keyboard body filled with currentColor, masked to cut out keys -->
+  <rect x="8" y="28" width="80" height="48" rx="6" ry="6" fill="currentColor" mask="url(#keyboard-mask)"/>
+
+  <!-- Sparkles -->
+  <g class="success" fill="currentColor" opacity="0.9">
+    <polygon points="78,12 80,18 86,18 81,22 83,28 78,24 73,28 75,22 70,18 76,18"/>
+    <polygon points="20,14 21,17 24,17 22,19 23,22 20,20 17,22 18,19 16,17 19,17" transform="scale(0.7) translate(10,8)"/>
+  </g>
+</svg>

@@ -13,8 +13,7 @@ Window::Window(GtkApplication* app) {
     gtk_widget_set_valign(box, GTK_ALIGN_CENTER);
     gtk_window_set_child(GTK_WINDOW(window_), box);
 
-    std::string icon_path = Resources::path("keyboard-enabled.svg");
-    icon_ = gtk_image_new_from_file(icon_path.c_str());
+    icon_ = gtk_image_new_from_icon_name("keyboard-enabled-symbolic");
     gtk_image_set_pixel_size(GTK_IMAGE(icon_), 96);
     gtk_widget_add_css_class(icon_, "icon-image");
     gtk_box_append(GTK_BOX(box), icon_);
@@ -45,7 +44,7 @@ void Window::set_toggle_callback(std::function<void()> cb) {
 void Window::update_state(AppState state, const std::string& detail) {
     switch (state) {
         case AppState::Active:
-            gtk_image_set_from_file(GTK_IMAGE(icon_), Resources::path("keyboard-enabled.svg").c_str());
+            gtk_image_set_from_icon_name(GTK_IMAGE(icon_), "keyboard-enabled-symbolic");
             gtk_label_set_text(GTK_LABEL(status_label_), "Keyboard Enabled");
             gtk_button_set_label(GTK_BUTTON(button_), "Disable Keyboard");
             set_button_css_class("enabled-btn");
@@ -58,7 +57,7 @@ void Window::update_state(AppState state, const std::string& detail) {
             break;
 
         case AppState::Frozen: {
-            gtk_image_set_from_file(GTK_IMAGE(icon_), Resources::path("keyboard-disabled.svg").c_str());
+            gtk_image_set_from_icon_name(GTK_IMAGE(icon_), "keyboard-disabled-symbolic");
             std::string label = "Keyboard Disabled";
             if (!detail.empty()) {
                 label = detail;
