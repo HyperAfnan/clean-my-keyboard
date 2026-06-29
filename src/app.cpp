@@ -1,5 +1,5 @@
 #include "app.hpp"
-#include "evdev_backend.hpp"
+#include "polkit_backend.hpp"
 #include "logger.hpp"
 #include "resources.hpp"
 #include "signals.hpp"
@@ -9,7 +9,7 @@
 
 App::App(GtkApplication* gtk_app)
     : gtk_app_(gtk_app),
-      service_(std::make_unique<EvdevBackend>()) {}
+      service_(std::make_unique<PolkitBackend>()) {}
 
 void App::on_activate() {
     load_css();
@@ -46,8 +46,7 @@ void App::on_toggle() {
             }
             case FreezeResult::PermissionDenied:
                 window_->show_error(
-                    "Permission denied. Run with sudo or add your "
-                    "user to the input group.");
+                    "Polkit authentication failed or helper could not be started.");
                 window_->update_state(service_.state());
                 break;
             case FreezeResult::NoKeyboardsFound:

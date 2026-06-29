@@ -20,10 +20,6 @@ public:
 
     void close();
 
-    const std::string& path() const;
-    bool is_grabbed() const;
-    int fd() const;
-
 private:
     std::string path_;
     int fd_ = -1;

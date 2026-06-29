@@ -76,14 +76,3 @@ void KeyboardDevice::close() {
     fd_ = -1;
 }
 
-const std::string& KeyboardDevice::path() const {
-    return path_;
-}
-
-bool KeyboardDevice::is_grabbed() const {
-    return grabbed_;
-}
-
-int KeyboardDevice::fd() const {
-    return fd_;
-}

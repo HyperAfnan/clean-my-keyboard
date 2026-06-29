@@ -62,27 +62,40 @@ makepkg -si
 
 ## Permission Configuration
 
-Accessing `/dev/input/event*` nodes requires special permissions. Running the application under a standard user account will display a "Permission Denied" warning. You have two options to enable non-root execution:
+Accessing Linux input device files (`/dev/input/event*`) requires elevated privileges. Running the application under a standard user account will show a "Permission Denied" warning. 
 
-### Option 1: Add user to the `input` group (Recommended)
+You have three options to run the application:
 
+### Option 1: Run with `sudo` (Quickest)
+You can launch the application directly as root to bypass permission checks:
+```bash
+sudo ./build/clean-my-keyboard
+```
+*(If globally installed)*:
+```bash
+sudo clean-my-keyboard
+```
+
+### Option 2: Add your user to the `input` group (Recommended)
+This grants your user account permanent read/write access to input devices:
 ```bash
 sudo usermod -aG input $USER
 ```
-*Note: You must log out and log back in (or restart your desktop session) for these changes to take effect.*
+*Important: You must log out of your desktop session and log back in (or reboot) for this group change to take effect.*
 
-### Option 2: Add a custom udev rule
+### Option 3: Add a custom udev rule
+You can define a custom udev rule to set appropriate group permissions on startup.
 
-Create a new file at `/etc/udev/rules.d/99-clean-my-keyboard.rules`:
-
+Create the file `/etc/udev/rules.d/99-clean-my-keyboard.rules`:
 ```udev
 SUBSYSTEM=="input", GROUP="input", MODE="0660"
 ```
 
-Reload the rules:
+Reload and trigger the rules:
 ```bash
 sudo udevadm control --reload-rules && sudo udevadm trigger
 ```
+
 
 ## License
 
