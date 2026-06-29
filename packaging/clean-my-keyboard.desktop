@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Clean My Keyboard
+Comment=Temporarily disable keyboard input for cleaning
+Exec=clean-my-keyboard
+Icon=clean-my-keyboard
+Type=Application
+Categories=Utility;
+Keywords=keyboard;clean;disable;lock;
+StartupNotify=true
