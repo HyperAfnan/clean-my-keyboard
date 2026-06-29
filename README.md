@@ -2,6 +2,10 @@
 
 A lightweight GTK4 utility that temporarily disables all keyboard input so you can safely wipe down your keys without triggering random shortcuts.
 
+# Preview
+
+<video src="https://github.com/HyperAfnan/clean-my-keyboard/blob/master/assets/demo.mp4?raw=true" width="100%" controls></video>
+
 ## Dependencies
 
 * `gtk4`
