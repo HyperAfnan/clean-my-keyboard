@@ -4,7 +4,7 @@ A lightweight GTK4 utility that temporarily disables all keyboard input so you c
 
 ## Preview
 
-https://github.com/HyperAfnan/clean-my-keyboard/raw/master/assets/demo.mp4
+https://github.com/user-attachments/assets/160c4041-40ea-4a49-abcb-46ba63693102
 
 ## Dependencies
 
